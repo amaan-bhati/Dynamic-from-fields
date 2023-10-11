@@ -2,11 +2,10 @@ import { fetchWeather } from './api/fetchWeather';
 import './App.css';
 
 const App = () => {
-   
     const [query, setQuery] = useState('');
-    const [ setWeather] = useState({});
+    const [weather, setWeather] = useState({});
     
-    
+    const search = async (e) => {
         if(e.key === 'Enter') {
             const data = await fetchWeather(query);
 
@@ -14,6 +13,7 @@ const App = () => {
             setQuery('');
         }
     }
+
 
     return (
         <div className="main-container">
